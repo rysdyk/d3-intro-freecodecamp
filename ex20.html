@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>D3</title>
+
+
+  <style>
+    .bar:hover {
+      fill: brown;
+    }
+  </style>
+
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+
+  <script>
+    var dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+
+    var w = 500;
+    var h = 100;
+
+    var svg = d3.select("body")
+                .append('svg')
+                .attr('width', w)
+                .attr('height', h);
+
+    svg.selectAll('rect')
+       .data(dataset)
+       .enter()
+       .append('rect')
+       .attr("x", function(d, i) { return i * 30; })
+       .attr("y", function(d) { return h - (d * 3); })
+       .attr("width", 25)
+       .attr("height", function(d) { return d * 3; })
+       .attr('fill', 'navy')
+       .attr('class', 'bar')
+       .append('title')
+       .text(function(d) { return d } );
+
+    svg.selectAll("text")
+       .data(dataset)
+       .enter()
+       .append('text')
+       .attr("x", function(d, i) { return i * 30; })
+       .attr("y", function(d) { return h - (d * 3) - 3; })
+       .text(function(d) { return d } )
+       .style('font-size', '25px')
+       .style('fill', 'red');
+
+  </script>
+</body>
+</html>

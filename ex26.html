@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>D3</title>
+
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+
+  <script>
+    var positionData = [[1, 7, -4],[6, 3, 8],[2, 8, 3]]
+
+    var output = d3.max(positionData, function(d) { return d[2]; });
+
+    d3.select("body")
+      .append("h2")
+      .text(output);
+  </script>
+</body>
+</html>

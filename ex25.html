@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>D3</title>
+
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+
+  <script>
+    var scale = d3.scaleLinear();
+    scale.domain([250, 500]);
+    scale.range([10, 150]);
+
+    var output = scale(50);
+
+    d3.select("body")
+      .append("h2")
+      .text(output);
+  </script>
+</body>
+</html>
